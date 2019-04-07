@@ -63,14 +63,18 @@ Markdown にショートコードを追記することで、PDF ファイルに�
 
 テーブルの記法を次のように囲うと、PDF ではテーブルにに図表番号が付与されます。
 
+```
 {{% table  title="利用するFQDN一覧" %}}
 | No | 管理者 | 利用者 |
 |------------|------------|----------------|
 | 1 |adminportal.region.fqdn|portal.region.fqdn|
 |2 |adminmanagement.region.fqdn|management.region.fqdn|
 {{% /table %}}
+```
 
 ## ライセンス
+
+GNU Affero General Public License v3.0
 
 BizDocify は次のソフトウェアを含んでいます。
 
