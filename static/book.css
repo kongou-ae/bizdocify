@@ -1,0 +1,143 @@
+/*-------------------------------------
+  Cover
+-------------------------------------*/
+
+#titlepage {
+    text-align: center;   
+}
+
+#title {
+    font-size:2em;
+    margin-top: 8cm;
+}
+
+#company {
+    font-size:1.25em;
+    margin-top: 2cm;
+}
+
+#author {
+    font-size:1.25em;
+}
+
+#version {
+    font-size:1.25em;
+    margin-top: 2cm;
+}
+
+/*-------------------------------------
+  Body
+-------------------------------------*/
+
+body {
+    counter-reset: h1 h2 h3 imgcaption tablecaption;
+}
+
+/*-------------------------------------
+  heading
+-------------------------------------*/
+
+h1 {
+    break-before: page;
+    font-size: 2em;
+    counter-reset: h2 h3; 
+    border-bottom:1pt solid gray; 
+    margin-top: 0mm;
+}
+
+h1::before {
+    counter-increment: h1;
+    content: counter(h1)". " ;
+} 
+
+h2 {
+    font-size: 1.5em;
+    counter-reset: h3; 
+}
+
+h2::before {
+    counter-increment: h2;
+    content: counter(h1)"."counter(h2)". " ;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h3::before {
+    counter-increment: h3;
+    content: counter(h1)"."counter(h2)"."counter(h3)". " ;
+}
+
+/*-------------------------------------
+  Others
+-------------------------------------*/
+
+p {
+    font-size: 10.5pt;
+    text-indent: 1rem;
+} 
+
+ol {
+    font-size: 10.5pt;
+} 
+
+ul {
+    font-size: 10.5pt;
+} 
+
+/*-------------------------------------
+  figure
+-------------------------------------*/
+
+figure {   
+    float-reference: page;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figure img {
+    max-width: 15cm;
+
+}
+
+figcaption {
+    float-reference: page;
+    float: bottom;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: bold;
+}
+
+
+figcaption.img::before {
+    counter-increment: imgcaption;
+    content: "図"counter(imgcaption)". " ;
+}
+
+figcaption.table::before {
+    counter-increment: tablecaption;
+    content: "表"counter(tablecaption)". " ;
+}
+
+/*-------------------------------------
+  table
+-------------------------------------*/
+
+th,td {
+    border: solid 1px black; 
+    padding-left: 2mm;
+    padding-right: 2mm;
+}
+ 
+table {
+    border-collapse:  collapse;
+}
+
+thead {
+    background-color: dimgray;
+    color: white;
+}

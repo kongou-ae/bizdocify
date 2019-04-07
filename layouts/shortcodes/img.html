@@ -1,0 +1,7 @@
+<figure>
+    {{ $img := findRE "(<img src=.*/>)" .Inner 1  }}
+    {{ range $img }}
+        {{ . | safeHTML }}
+    {{ end }}
+    <figcaption class="img">{{ .Get "title" }}</figcaption>
+</figure>
