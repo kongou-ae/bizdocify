@@ -1,12 +1,19 @@
 # BizDocify
 
-Morkdown からビジネスっぽい PDF を生成する仕組み
+Morkdown からビジネス向けっぽい PDF を生成する仕組み
 
-## 
+## インストール方法（Windows向け）
+
+
+
+``
+
+
+
+## カスタマイズ
 
 ## ライセンス
 
 BizDocify は次のソフトウェアを含んでいます。
 
-- [Hugo](https://github.com/gohugoio/hugo)
 - [Vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js)
