@@ -23,7 +23,7 @@ Expand-Archive -Path $HOME/Downloads/hugo.zip -DestinationPath $HOME
 mv $HOME\hugo.exe $HOME\bizdocify-master
 ```
 
-## 使い方
+## 使い方（Windows向け）
 
 ### ドキュメントの書き方
 
