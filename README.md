@@ -4,7 +4,7 @@ Morkdown からビジネス向けっぽい PDF を生成する仕組み
 
 ## 出来上がりのサンプル
 
-[output.pdf](https://github.com/kongou-ae/bizdocify/raw/master/sample/output.pdf)
+[input](https://github.com/kongou-ae/bizdocify/tree/master/sample/content) --> [output.pdf](https://github.com/kongou-ae/bizdocify/raw/master/sample/output.pdf)
 
 ## インストール方法（Windows向け）
 
@@ -35,15 +35,15 @@ mv $HOME\hugo.exe $HOME\bizdocify-master
 
 ### 出来上がりの確認方法
 
-- `.\hugo.exe server` を実行して、Vivliostyle Viewer を起動します
+- `.\hugo.exe server` を実行して、Web Server を起動します
 - `tools.html` を開いて `Viewer` をクリックします
-- Vivliostyle Viewer を利用して、できあがりの PDF の見た目を確認します
-    - Markdown を更新した場合は、Vivliostyle Viewer をリロードしてください
-    - 更新が反映されない場合は、DevTool を 利用して Chrome のキャッシュを無効化してください
+- 表示された Vivliostyle Viewer を利用して、できあがりの PDF の見た目を確認します
+    - Markdown を更新した場合、Vivliostyle Viewer を手動でリロードしてください
+    - 更新が反映されない場合、DevTool を 利用して Chrome のキャッシュを無効化してください
 
 ### PDF の出力方法
 
-Google Chrome で Vivliostyle Viewe にアクセスしたうえで、右クリック → 印刷 を選択して PDF として保存してください。
+Google Chrome で Vivliostyle Viewe にアクセスしたうえで、右クリック → 印刷 を選択して PDF として保存します。
 
 ## ショートコード
 
@@ -51,7 +51,7 @@ Markdown にショートコードを追記することで、PDF ファイルに�
 
 ### img
 
-画像の記法を次のように囲うと、PDF では画像にに図表番号が付与されます。
+画像の記法を次のように囲うと、画像に図表番号が付与されます。
 
 ```
 {{% img title="App Service の全体図" %}}
@@ -61,7 +61,7 @@ Markdown にショートコードを追記することで、PDF ファイルに�
 
 ### table
 
-テーブルの記法を次のように囲うと、PDF ではテーブルにに図表番号が付与されます。
+テーブルの記法を次のように囲うと、テーブルに図表番号が付与されます。
 
 ```
 {{% table  title="利用するFQDN一覧" %}}
@@ -74,8 +74,6 @@ Markdown にショートコードを追記することで、PDF ファイルに�
 
 ## ライセンス
 
-GNU Affero General Public License v3.0
-
-BizDocify は次のソフトウェアを含んでいます。
-
-- [Vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js)
+- GNU Affero General Public License v3.0
+- BizDocify は次のソフトウェアを含んでいます。
+    - [Vivliostyle.js](https://github.com/vivliostyle/vivliostyle.js)
