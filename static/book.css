@@ -3,7 +3,7 @@
 -------------------------------------*/
 
 #titlepage {
-    text-align: center;   
+    text-align: center;
 }
 
 #title {
@@ -30,29 +30,42 @@
 -------------------------------------*/
 
 body {
-    counter-reset: h1 h2 h3 imgcaption tablecaption;
+    counter-reset: h1 h2 h3 imgcaption tablecaption toch1 toch2 toch3;
+}
+
+#mainpage {
+    counter-reset: h1;
 }
 
 /*-------------------------------------
   heading
 -------------------------------------*/
 
+#toc-head {
+    break-before: page;
+    font-size: 2em;
+    border-bottom:1pt solid gray;
+    margin-top: 0mm;
+    margin-bottom: 0.67em;
+    font-weight: bold;
+}
+
 h1 {
     break-before: page;
     font-size: 2em;
-    counter-reset: h2 h3; 
-    border-bottom:1pt solid gray; 
+    counter-reset: h2 h3;
+    border-bottom:1pt solid gray;
     margin-top: 0mm;
 }
 
 h1::before {
     counter-increment: h1;
     content: counter(h1)". " ;
-} 
+}
 
 h2 {
     font-size: 1.5em;
-    counter-reset: h3; 
+    counter-reset: h3;
 }
 
 h2::before {
@@ -70,27 +83,70 @@ h3::before {
 }
 
 /*-------------------------------------
+  TOC
+-------------------------------------*/
+
+#toc-list  a {
+    text-decoration: none;
+    color:black;
+}
+
+#toc-list  ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    list-style: none;
+    padding-left: 1rem;
+}
+
+#toc-list ul.toc-h1 {
+    counter-reset: toch2 toch3;
+}
+
+#toc-list ul.toc-h1 li a::before {
+    counter-increment: toch1;
+    content: counter(toch1)". " ;
+}
+
+#toc-list ul.toc-h2 li {
+    text-indent: 1rem;
+}
+
+#toc-list ul.toc-h2 li a::before {
+    counter-increment: toch2;
+    content: counter(toch1)"."counter(toch2)". " ;
+}
+
+#toc-list ul.toc-h3 li {
+    text-indent: 2rem;
+}
+
+#toc-list ul.toc-h3 li a::before {
+    counter-increment: toch3;
+    content: counter(toch1)"."counter(toch2)"."counter(toch3)". " ;
+}
+
+/*-------------------------------------
   Others
 -------------------------------------*/
 
 p {
     font-size: 10.5pt;
     text-indent: 1rem;
-} 
+}
 
 ol {
     font-size: 10.5pt;
-} 
+}
 
 ul {
     font-size: 10.5pt;
-} 
+}
 
 /*-------------------------------------
   figure
 -------------------------------------*/
 
-figure {   
+figure {
     float-reference: page;
     margin: 0;
     padding: 1rem;
@@ -128,11 +184,11 @@ figcaption.table::before {
 -------------------------------------*/
 
 th,td {
-    border: solid 1px black; 
+    border: solid 1px black;
     padding-left: 2mm;
     padding-right: 2mm;
 }
- 
+
 table {
     border-collapse:  collapse;
 }

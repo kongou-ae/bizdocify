@@ -1,0 +1,21 @@
+<!-- ignore empty links with + -->
+{{ range .Pages.ByTitle }}
+    {{ $headers := findRE "<h[1-3].*?>(.|\n])+?</h[1-3]>" .Content }}
+    <!-- at least one header to link to -->
+    {{ range $headers }}
+        {{ $header := . }}
+        {{ range first 1 (findRE "<h[1-3]" $header 1) }}
+            {{ range findRE "[1-3]" . 1 }}
+                <ul class="toc-h{{ . }}">
+                    {{ $base := ($.Page.File.LogicalName) }}
+                    {{ $anchorId := $header | plainify | htmlEscape | lower }}
+                    {{ $anchorId := replace $anchorId " " "-" }}
+                    {{ $anchorId := replace $anchorId "、" "-" }}
+                    <li>
+                        <a {{ printf "href=#%s" $anchorId | safeHTMLAttr }}>{{ $header | plainify | htmlEscape }}</a>
+                    </li>
+                </ul>
+            {{end}}
+        {{end}}
+    {{ end }}
+{{ end }}

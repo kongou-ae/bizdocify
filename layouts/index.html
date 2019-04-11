@@ -17,15 +17,17 @@
             @bottom-center {
                 content: "Copyright © 2019 {{.Site.Params.en_company}} All Rights Reserved. \a " counter(page) " / " counter(pages) ;
                 border-top:1pt solid black;
-                white-space: pre; 
-                color: gray
+                white-space: pre;
+                color: gray;
+                font-size:9pt;
             }
 
             @top-left {
                 content: "{{.Site.Params.Title}}";
                 border-bottom: 1pt solid black;
                 vertical-align: middle;
-                color: gray
+                color: gray;
+                font-size:9pt;
             }
         }
 
@@ -42,6 +44,19 @@
                 border-bottom:0pt solid black;
             }
         }
+
+        {{ range .Pages.ByTitle }}
+            {{ $items := findRE "<h1.*?>" .Content }}
+            {{ range $items }}
+                {{ $item := . | replaceRE "<h1 id=" "" }}
+                {{ $item = replace $item "\"" "" }}
+                {{ $item = replace $item ">" "" }}
+                #toc-list a::after {
+                    content: target-counter(attr(href), page);
+                    float: right;
+                }
+            {{ end }}
+        {{ end }}
     </style>
 </head>
 <body>
@@ -51,11 +66,18 @@
         <div id="author">{{.Site.Params.author}}</div>
         <div id="version">第{{.Site.Params.version}}版</div>
     </div>
+    <div id="toc">
+        <div id="toc-head">
+            目次
+        </div>
+        <div id="toc-list">
+            {{ partial "toc" . }}
+        </div>
+    </div>
     <div id="mainpage">
         {{ range .Pages.ByTitle }}
             {{ .Content }}
         {{ end }}
     </div>
-
 </body>
 </html>
